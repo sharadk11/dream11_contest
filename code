@@ -1,0 +1,28 @@
+def calculate_win_probability(total_teams, winning_ranks):
+    """
+    Calculate the probability of winning in a Dream11-like contest.
+    
+    Args:
+    - total_teams (int): Total number of participants in the contest.
+    - winning_ranks (int): Number of top ranks that win prizes.
+
+    Returns:
+    - float: Probability (in percentage) of a single team winning.
+    """
+    if winning_ranks > total_teams:
+        return 100.0  # Everyone wins
+    probability = (winning_ranks / total_teams) * 100
+    return probability
+
+# Simulating for different winning rank thresholds in a 1 crore user contest
+total_participants = 10_000_000  # 1 crore
+simulations = {
+    "Top 1": calculate_win_probability(total_participants, 1),
+    "Top 10": calculate_win_probability(total_participants, 10),
+    "Top 100": calculate_win_probability(total_participants, 100),
+    "Top 10,000": calculate_win_probability(total_participants, 10_000),
+    "Top 1 Lakh": calculate_win_probability(total_participants, 100_000),
+    "Top 10 Lakh": calculate_win_probability(total_participants, 1_000_000)
+}
+
+simulations
